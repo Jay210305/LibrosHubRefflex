@@ -1,3 +1,5 @@
 HOME_ROUTE='/'
 LOGIN='/login'
 SIGN_UP='/signup'
+CARRITO='/carrito'
+CHECKOUT='/checkout'

@@ -1,4 +1,5 @@
 import reflex as rx
+from .. import	navigation
 
 def sidebar_item(
     text: str, icon: str, href: str
@@ -56,7 +57,7 @@ def sidebar_bottom_profile() -> rx.Component:
                 rx.vstack(
                     rx.vstack(
                         sidebar_item(
-                            "Settings", "settings", "/#"
+                            "Checkout", "shopping-cart", navigation.routes.CARRITO
                         ),
                         sidebar_item(
                             "Log out", "log-out", "/#"
@@ -132,14 +133,12 @@ def sidebar_bottom_profile() -> rx.Component:
                             rx.vstack(
                                 rx.vstack(
                                     sidebar_item(
-                                        "Settings",
-                                        "settings",
-                                        "/#",
+                                        "Checkout", "shopping-cart", navigation.routes.CARRITO
                                     ),
                                     sidebar_item(
                                         "Log out",
                                         "log-out",
-                                        "/#",
+                                        navigation.routes.HOME_ROUTE,
                                     ),
                                     width="100%",
                                     spacing="1",
