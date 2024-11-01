@@ -26,7 +26,7 @@ def landing_page() -> rx.Component:
                     is_external=True,
                 ),      
                 spacing="5",
-                # justify="center",
+                justify="center",
                 min_height="85vh",
                 padding_top="6em",
             ),

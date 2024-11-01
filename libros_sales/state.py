@@ -8,7 +8,3 @@ class State(rx.State):
 
     def login_nav_search_hide(self):
         self.login_s_h = not(self.show)
-
-    def login_button(self):
-        self.handle_navbar_show_onclick()
-        return rx.redirect("/login")

@@ -1,7 +1,6 @@
 import reflex as rx
 from ..ui.base import base_page
-from ..state import State
-from ..ui.sidebar import sidebar_bottom_profile
+from .. import navigation
 
 def login_page() -> rx.Component:
     return base_page(
@@ -71,7 +70,7 @@ def login_page() -> rx.Component:
                     rx.button("Sign in", size="3", width="100%"),
                     rx.center(
                         rx.text("New here?", size="3"),
-                        rx.link("Sign up", href="#", size="3"),
+                        rx.link("Sign up", href=navigation.routes.SIGN_UP, size="3"),
                         opacity="0.8",
                         spacing="2",
                         direction="row",
