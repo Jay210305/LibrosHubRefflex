@@ -7,6 +7,12 @@ def navbar_link(text: str, url: str) -> rx.Component:
         rx.text(text, size="4", weight="medium"), href=url
     )
 
+def login_button():
+    State.handle_navbar_show_onclick,
+    rx.redirect('/login'),
+
+
+
 def navbar() -> rx.Component:
     return rx.box(
         rx.desktop_only(
@@ -18,35 +24,54 @@ def navbar() -> rx.Component:
                         height="auto",
                         border_radius="25%",
                     ),
-                    rx.heading(
-                        "Reflex", size="7", weight="bold"
+                    rx.link(
+                        rx.heading(
+                            "Reflex", size="6", weight="bold",
+                        ),
+                        href='/'
                     ),
                     align_items="center",
                 ),
-                rx.input(
-                    rx.input.slot(rx.icon("search")),
-                    placeholder="Search...",
-                    type="search",
-                    width="500px",
-                    justify="end",
+                rx.cond(
+                    State.login_s_h,
+                    rx.input(
+                        rx.input.slot(rx.icon("search")),
+                        placeholder="Search...",
+                        type="search",
+                        width="500px",
+                        justify="end",
+                    ),
                 ),
-                rx.hstack(
-                    rx.button(
-                        "Sign Up",
-                        size="3",
-                        variant="outline",
+                rx.cond(
+                    State.login_s_h,
+                    rx.hstack(
+                        rx.button(
+                            "Sign Up",
+                            size="3",
+                            variant="outline",
+                        ),
+                        rx.cond(
+                                State.show == True,
+                                rx.button(
+                                    "Log in",
+                                    on_click=State.login_button,
+                                    size="3"
+                                ),
+                                rx.button(                        
+                                    "Log in",
+                                    on_click=rx.redirect('/login'),
+                                    size="3"
+                                )
+                            ),
+                        
+                        rx.button(
+                            "Carrito",
+                            on_click=State.handle_navbar_show_onclick,
+                            size="3",
+                        ),
+                        spacing="4",
+                        justify="end",
                     ),
-                    rx.button(
-                        "Log In",
-                        size="3"
-                    ),
-                    rx.button(
-                        "Carrito",
-                        on_click=State.handle_navbar_show_onclick,
-                        size="3",
-                    ),
-                    spacing="4",
-                    justify="end",
                 ),
                 justify="between",
                 align_items="center",
@@ -61,26 +86,29 @@ def navbar() -> rx.Component:
                         height="auto",
                         border_radius="25%",
                     ),
-                    rx.heading(
-                        "Reflex", size="6", weight="bold"
+                    rx.link(
+                        rx.heading(
+                            "Reflex", size="6", weight="bold",
+                        ),
+                        href='/'
                     ),
                     align_items="center",
                 ),
                 rx.input(
-                    rx.input.slot(rx.icon("search")),
-                    placeholder="Search...",
-                    type="search",
-                    size="2",
-                    justify="end",
+                        rx.input.slot(rx.icon("search")),
+                        placeholder="Search...",
+                        type="search",
+                        size="2",
+                        justify="end",
                 ),
                 rx.menu.root(
                     rx.menu.trigger(
                         rx.icon("menu", size=30)
                     ),
                     rx.menu.content(
-                        rx.menu.item("Carrito",on_click=State.handle_navbar_show_onclick,),
+                        rx.menu.item("Carrito", on_click=State.handle_navbar_show_onclick,),
                         rx.menu.separator(),
-                        rx.menu.item("Log in"),
+                        rx.menu.item("Log in", on_click=rx.redirect('/login')),
                         rx.menu.item("Sign up"),
                     ),
                     justify="end",
