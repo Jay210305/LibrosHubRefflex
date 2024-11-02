@@ -4,6 +4,7 @@ class State(rx.State):
     show : bool = False
     login_s_h : bool = True
     count_product: int = 0
+    text: str = "No Selection"
 
     def increment_product(self):
         self.count_product += 1
