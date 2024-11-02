@@ -30,73 +30,88 @@ def item(
 
 def checkout():
     return base_page(
-        rx.hstack(
-            rx.vstack(
-                rx.heading("Información de Envío", size="8"),
-                rx.separator(),
-                rx.hstack(
-                    rx.link("volver a Carrito", href=navigation.routes.CARRITO),
-                ),
-                rx.text("Email"),
-                rx.input(
-                    type="email",
-                    required=True,
-                ),
-                rx.hstack(
-                    rx.vstack(
-                        rx.text("Nombre"),
-                        rx.input(
-                            required=True,
+        rx.center(
+            rx.hstack(
+                # Información de Envío
+                rx.box(
+                    rx.heading("Información de Envío", size="8"),
+                    rx.separator(),
+                    rx.hstack(
+                        rx.link("Volver a Carrito", href=navigation.routes.CARRITO),
+                    ),
+                    rx.text("Email"),
+                    rx.input(
+                        type="email",
+                        required=True,
+                    ),
+                    rx.hstack(
+                        rx.vstack(
+                            rx.text("Nombre"),
+                            rx.input(
+                                required=True,
+                            ),
+                            align="center",
                         ),
+                        rx.vstack(
+                            rx.text("Apellido"),
+                            rx.input(
+                                required=True,
+                            ),
+                            align="center",
+                        ),
+                        spacing="2",
+                        justify="center",
                         align="center",
                     ),
-                    rx.vstack(
-                        rx.text("Apellido"),
-                        rx.input(
-                            required=True,
+                    rx.text("Dirección"),
+                    rx.input(
+                        required=True,
+                    ),
+                    rx.hstack(
+                        rx.vstack(
+                            rx.text("Ciudad"),
+                            rx.input(
+                                required=True,
+                            ),
                         ),
+                        rx.vstack(
+                            rx.text("Región/Estado"),
+                            rx.input(
+                                required=True,
+                            ),
+                        ),
+                        spacing="2",
+                        justify="center",
                         align="center",
                     ),
-                    spacing="2",
-                    justify="center",
-                    align="center",
-                ),
-                rx.text("Dirección"),
-                rx.input(
-                    required=True,
-                ),
-                rx.hstack(
-                    rx.vstack(
-                        rx.text("Ciudad"),
-                        rx.input(
-                            required=True,
-                        ),
+                    rx.text("Código postal"),
+                    rx.input(
+                        required=True,
                     ),
-                    rx.vstack(
-                        rx.text("Región/Estado"),
-                        rx.input(
-                            required=True,
-                        ),
-                    ),                    
-                    spacing="2",
-                    justify="center",
-                    align="center",                    
+                    rx.button(
+                        "Continuar a Método de Envío",
+                        on_click=rx.redirect(navigation.routes.ENVIO),
+                        width="100%",
+                        margin_top="1em",
+                    ),
+                    width="60%",
+                    padding="2em",
+                    bg=rx.color("gray", 1),
+                    border_radius="md",
                 ),
-                rx.text("Código postal"),
-                rx.input(
-                    required=True,
+                # Resumen
+                rx.box(
+                    resumen(),
+                    width="35%",
+                    padding="2em",
+                    bg=rx.color("black", 2),
+                    border_radius="md",
+                    margin_left="2em",
                 ),
-                rx.button(
-                    "Continuar a Método de Envío",
-                    on_click=rx.redirect(navigation.routes.ENVIO),                   
-                ),
-                width="60%",
+                spacing="2em",
             ),
-            rx.vstack(
-                resumen(),
-            ),
-            padding_top="6em",
-            width="100%",
-            margin_x="2em"
+            justify="center",
+            padding_y="4em",
+            width="80%",
         )
     )
