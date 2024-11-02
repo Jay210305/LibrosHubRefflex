@@ -8,9 +8,9 @@ def envio():
     return base_page(
         rx.vstack(
             rx.link("Volver al Checkout", href=navigation.routes.CHECKOUT),
+            rx.heading("Método de Envío"),
             rx.hstack(
                 rx.vstack(                    
-                    rx.heading("Método de Envío"),
                     rx.text("Dirección: "),
                     rx.vstack(
                         rx.badge("Método elegido "+State.text),
@@ -23,6 +23,10 @@ def envio():
                 ),
                 rx.vstack(
                     resumen(),
+                    rx.button(
+                        "Continuar a Método de Pago",
+                        on_click=rx.redirect(navigation.routes.METODO_PAGO),
+                    ),
                 ),                
             ),
             padding_top="6em"
