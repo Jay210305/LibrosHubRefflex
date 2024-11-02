@@ -1,6 +1,7 @@
 import reflex as rx
 from ..ui.base import base_page
 from .. import navigation
+from ..ui.resumen import resumen
 
 def item(
     text: str, icon: str, href: str
@@ -92,10 +93,7 @@ def checkout():
                 width="60%",
             ),
             rx.vstack(
-                rx.heading("Resumen"),
-                rx.text("Total a pagar: "),
-                justify="center",
-                align="center",
+                resumen(),
             ),
             padding_top="6em",
             width="100%",
