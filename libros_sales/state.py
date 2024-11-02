@@ -5,6 +5,11 @@ class State(rx.State):
     login_s_h : bool = True
     count_product: int = 0
     text: str = "No Selection"
+    cart = []
+
+    def add_to_cart(cls, book_title):
+        cls.cart.append(book_title)
+        print(f"{book_title} ha sido añadido al carrito.")
 
     def increment_product(self):
         self.count_product += 1
