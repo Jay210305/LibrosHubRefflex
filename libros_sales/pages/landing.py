@@ -4,6 +4,7 @@ from ..ui.sidebar import sidebar_bottom_profile
 from ..ui.base import base_page
 from rxconfig import config
 from ..state import State
+from ..conexion.model import ProductState
 
 def landing_page() -> rx.Component:
     return base_page(
