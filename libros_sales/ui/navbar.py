@@ -21,7 +21,7 @@ def navbar() -> rx.Component:
                     ),
                     rx.link(
                         rx.heading(
-                            "Reflex", size="6", weight="bold",
+                            "LibrosHub", size="6", weight="bold",
                         ),
                         href=navigation.routes.HOME_ROUTE
                     ),
@@ -69,7 +69,7 @@ def navbar() -> rx.Component:
                     ),
                     rx.link(
                         rx.heading(
-                            "Reflex", size="6", weight="bold",
+                            "LibrosHub", size="6", weight="bold",
                         ),
                         href=navigation.routes.HOME_ROUTE
                     ),

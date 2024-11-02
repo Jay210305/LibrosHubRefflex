@@ -28,7 +28,6 @@ def sidebar_item(
 
 def sidebar_items() -> rx.Component:
     return rx.vstack(
-        sidebar_item("Checkout", "shopping-cart", "/#"),
         spacing="1",
         width="100%",
     )
@@ -45,7 +44,7 @@ def sidebar_bottom_profile() -> rx.Component:
                         border_radius="25%",
                     ),
                     rx.heading(
-                        "Reflex", size="7", weight="bold"
+                        "LibrosHub", size="7", weight="bold"
                     ),
                     align="center",
                     justify="start",
